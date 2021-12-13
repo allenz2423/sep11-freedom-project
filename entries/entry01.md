@@ -1,7 +1,9 @@
 # Entry 1
-##### X/X/XX
+##### 10/18/2021
 
-Text
+## I am using jQuery for front end manipulation, Firebase for storing user inputs.
+jQuery seems intuitive enough, I don't really like the syntax though.
+I still need to work on Firebase
 
 [Next](entry02.md)
 
