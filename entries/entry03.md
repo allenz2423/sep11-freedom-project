@@ -3,7 +3,7 @@
 
 ## Confusion
 
-I am using firebase as my tool, but firebase isn't easy to understand. I started tinkering around with firebase, but none of my imports would work. I didn't know why my `npm` wasn't working properly. I had consulted with a couple friends and came to the conclusion that my dependencies are out of date. What I did was go to the `Nodesource` GitHub repository. Because I am using Ubuntu for WSL, I copied these 2 lines into my terminal. 
+I am using firebase as my tool, but firebase isn't easy to understand. I started tinkering around with firebase, but none of my imports would work. I didn't know why my `npm` wasn't working properly. I had consulted with a couple friends and came to the conclusion that my dependencies are out of date. What I did was go to the [`Nodesource` GitHub](https://github.com/nodesource/distributions) repository. Because I am using Ubuntu for WSL, I copied these 2 lines into my terminal. 
 ```curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -```
 
 ```sudo apt-get install -y nodejs```
