@@ -20,6 +20,15 @@ While following the setup guide, I have learned what an `asynchronous function` 
 
 I was consulting around with my friends and they all told me to start easy, try authenticating your users first. So I followed the beautifully documented guide that Google provides. There's really nothing I can really put in this blog entry because most of the code is just straight up copied from the documentations.
 
+
+## EDP
+
+I am currently at step 2 of the engineering design process. I am still on the very beginning of learning firebase. I plan on stepping into plan 3 and 4 within the next month or so by creating a functional albeit trash game and store a leaderboard using firebase.
+
+## Skills
+
+I haven't been able to expand on anything except for vanilla JavaScript. I have gotten pretty good at algorithms but that's about it.
+
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
