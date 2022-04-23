@@ -1,15 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src="https://raw.githubusercontent.com/bestiejs/platform.js/master/platform.js"></script>
-    <script src="https://raw.githubusercontent.com/bestiejs/benchmark.js/2.1.2/benchmark.js"></script>
-    <script src="testing.js"></script>
+    <div class="flex h-screen">
+        <div class="m-auto">
+            <input type="text" id="email" placeholder="Username"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <button id="login" class="rounded font-bold">Login</button><br>
+            <button id="register" class="rounded font-bold"">Register</button>
+            <a id="error"></a>
+        </div>
+    </div>
+    <script>
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyA1RLkihRPGEf-u7pkM0XNESh2U927zcz0",
+
+            authDomain: "aarsasarsarsasars.firebaseapp.com",
+
+            projectId: "aarsasarsarsasars",
+
+            storageBucket: "aarsasarsarsasars.appspot.com",
+
+            messagingSenderId: "475156748111",
+
+            appId: "1:475156748111:web:31d017da7da952110fd73a",
+
+            measurementId: "G-HJ54NNXX1E"
+
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore()
+        const auth = firebase.auth();
+        var reg = document.querySelector("#register");
+        var log = document.querySelector("#login");
+        var error = document.querySelector("#error");
+
+        auth.onAuthStateChanged(user => {
+            if(user) {
+                window.location.replace("main.html")
+            } else {
+                console.log("not logged in");
+            }
+        })
+        
+        reg.addEventListener("click",function(){
+            var email = document.querySelector("#email").value;
+            var password = document.querySelector("#password").value;
+            console.log(email)
+            console.log(password)
+            auth.createUserWithEmailAndPassword(email, password).then(c => {
+                window.location.replace("./main.html");
+            })
+        })
+
+        log.addEventListener("click",function(){
+            var email = document.querySelector("#email").value;
+            var password = document.querySelector("#password").value;
+            console.log(email)
+            console.log(password)
+            auth.signInWithEmailAndPassword(email, password).then(c => {
+                window.location.replace("./main.html");
+            })
+        })
+    </script>
 </body>
 </html>
