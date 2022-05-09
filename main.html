@@ -57,7 +57,7 @@
             setupQuotes(snapshot.docs);
         })
         const quotes =  document.querySelector("#quotes")
-        const setupQuotes = (data) => {
+        function setupQuotes(data){
             let html = "";
             data.forEach(doc => {
                 const quote = doc.data();
