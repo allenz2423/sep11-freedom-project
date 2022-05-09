@@ -47,6 +47,7 @@
         var reg = document.querySelector("#register");
         var log = document.querySelector("#login");
         var error = document.querySelector("#error");
+        var err = "auth/email-already-in-use"
 
         auth.onAuthStateChanged(user => {
             if(user) {
@@ -61,9 +62,14 @@
             var password = document.querySelector("#password").value;
             console.log(email)
             console.log(password)
-            auth.createUserWithEmailAndPassword(email, password).then(c => {
-                window.location.replace("./main.html");
-            })
+            try {
+                auth.createUserWithEmailAndPassword(email, password).then(c => {
+                    window.location.replace("main.html");
+                })
+            } catch {
+                error.innerHTML = "Email already taken."
+                
+            }
         })
 
         log.addEventListener("click",function(){
@@ -71,9 +77,13 @@
             var password = document.querySelector("#password").value;
             console.log(email)
             console.log(password)
-            auth.signInWithEmailAndPassword(email, password).then(c => {
+            try {
+                auth.signInWithEmailAndPassword(email, password).then(c => {
                 window.location.replace("./main.html");
-            })
+                })
+            } catch {
+                error.innerHTML = "Invalid email or password" 
+            }
         })
     </script>
 </body>

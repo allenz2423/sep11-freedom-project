@@ -15,7 +15,9 @@ var selection = document.querySelectorAll("div")
 // Let's pretend we have code here to change the text box to an editable input form.
 selection.addEventListener("keyup",function(event){
     if(event.keycode == 13) {
-        db.collections("post").doc(event.target.index())
+        db.collections("collectionName").set({
+            "collectionName": event.target.value
+        })
     }
 })
 ```
