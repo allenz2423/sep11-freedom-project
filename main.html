@@ -16,11 +16,12 @@
 </head>
 <body>
     <button id="logout">Logout</button>
+    <button id="delete">Delete</button>
     <br>
     <!-- <input type="text" id="stuffs" placeholder="Type a motivational quote here!"><button id="submit">Submit</button> -->
     <div class="flex h-screen">
         <div class="m-auto">
-            <input type="text" id="stuffs" placeholder="Type a motivational quote here!"><br><button id="submit">Submit</button>
+            <input type="text" id="stuffs" placeholder="Type whatever here!"><br><button id="submit">Submit</button>
             <ul id="quotes">
 
             </ul>
@@ -56,15 +57,27 @@
         db.collection("stuff").get().then(snapshot => {
             setupQuotes(snapshot.docs);
         })
+        let counter = 0
         const quotes =  document.querySelector("#quotes")
         function setupQuotes(data){
             let html = "";
-            data.forEach(doc => {
+            data.sort((a,b) => {
+                return a.data().counter - b.data().counter
+            }).reverse().forEach(doc => {
                 const quote = doc.data();
-                console.log(quote)
+                console.log(quote.counter)
+                counter++
+                console.log(quote.usr)
                 html += `
                     <li>
-                        <p class="text-gray-600">${quote.length}. ${quote.stuff}</p>
+                        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">${quote.date}</div>
+                            <p class="text-gray-700 text-base">
+                                ${quote.stuff}
+                            </p>
+                        </div>
+                        </div>
                     </li>   
                 `
             })
@@ -73,11 +86,34 @@
         var submit = document.querySelector("#submit")
         submit.addEventListener("click", function(){
             const stuffs = document.querySelector("#stuffs").value;
-            db.collection("stuff").add({
-                'stuff': stuffs
+            counter++
+            db.collection("stuff").doc(counter + "thing").set({
+                'date': Date(),
+                'stuff': stuffs,
+                'counter':counter,
+                'usr': auth.currentUser.uid
             })
-        quotes.innerHTML += `<p class="text-gray-600">${stuffs}</p></li>`;
+            var html = quotes.innerHTML.split("").join("").toString()
+            quotes.innerHTML = `
+                            <li><div class="max-w-sm rounded overflow-hidden shadow-lg">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2">${Date()}</div>
+                                    <p class="text-gray-700 text-base">
+                                        ${stuffs}
+                                    </p>
+                                </div>
+                            </div> ${html}
+                            </li>`
         }) 
-    </script>
+        var deleteCol = document.querySelector("#delete")
+        deleteCol.addEventListener("click", function() {
+            db.collection("stuff").get().then(querySnapshot => {
+                querySnapshot.docs.forEach(mathing => {
+                    mathing.ref.delete()
+                    quotes.innerHTML = ""
+                })
+            })
+        })
+</script>
 </body>
 </html>
