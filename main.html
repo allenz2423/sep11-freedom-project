@@ -135,34 +135,6 @@
             deleteOwnEntry = document.querySelectorAll("button")
             delStuff()
         }) 
-        var newArray = [];
-        /* function reformatter() {
-            counter = 0
-            // step 1, copy all the stuff into a new array
-            db.collection("stuff").get().then(snapshot => {
-                snapshot.docs.forEach(doc => {
-                    newArray.push(doc.data())
-                    delCol()
-                })
-            })
-            // step 2, sort the array by the counter
-            newArray.sort((a,b) => {
-                return b.usr[1] - a.usr[1]
-            })
-            // console.log(newArray)
-            newArray.forEach(doc => console.log(doc))
-              
-            // console.log(db.collection("stuff").get().then(snapshot => {
-            //     snapshot.docs.forEach(doc => {
-            //         console.log(doc.data())
-            //     })
-            // }))
-            // step 3, display it all again
-            db.collection("stuff").get().then(snapshot => {
-                setupQuotes(snapshot.docs);
-            })
-            // console.log(newArray)
-        } */
         var deleteCol = document.querySelector("#delete")
         function delCol() {
             db.collection("stuff").get().then(querySnapshot => {
