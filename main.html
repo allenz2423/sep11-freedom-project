@@ -42,6 +42,7 @@
         
         const db = firebase.firestore();
         const auth = firebase.auth();
+        var deleteOwnEntry
         auth.onAuthStateChanged(user => {
             if(!user) {
                 window.location.replace("index.html");
@@ -59,15 +60,13 @@
         })
         let counter = 0
         const quotes =  document.querySelector("#quotes")
-        function setupQuotes(data){
+        function setupQuotes(data){ 
             let html = "";
             data.sort((a,b) => {
-                return a.data().counter - b.data().counter
-            }).reverse().forEach(doc => {
+                return b.data().usr[1] - a.data().usr[1]
+            }).forEach(doc => {
                 const quote = doc.data();
-                console.log(quote.counter)
-                counter++
-                console.log(quote.usr)
+                console.log(quote.usr[1])
                 html += `
                     <li>
                         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -75,23 +74,51 @@
                             <div class="font-bold text-xl mb-2">${quote.date}</div>
                             <p class="text-gray-700 text-base">
                                 ${quote.stuff}
+                                <button id="${quote.usr[0]}" value="${quote.usr[1]}" class="buttonDelete">Delete</button>
                             </p>
                         </div>
                         </div>
                     </li>   
                 `
             })
+            data.sort((a,b) => {
+                return a.data().usr[1] - b.data().usr[1]
+            }).forEach(doc => {
+                const quote = doc.data();
+                counter = quote.usr[1]
+            })
             quotes.innerHTML = html;
+            deleteOwnEntry = document.querySelectorAll("button")
+            delStuff()
+        }
+            
+        function delStuff() {
+            for(let i = 0; i < deleteOwnEntry.length; i++){
+                // console.log(deleteOwnEntry.length)
+                deleteOwnEntry[i].addEventListener("click", function(){
+                    const id = this.id
+                    const val = this.value
+                    if(id == auth.currentUser.uid) {
+                        db.collection("stuff").doc(val).delete().then(function(){
+                            console.log("Document successfully deleted!");
+                            db.collection("stuff").get().then(snapshot => {
+                                setupQuotes(snapshot.docs);
+                            })
+                        }).catch(function(error){
+                            console.error("Error removing document: ", error);
+                        })
+                    }
+                })
+            }
         }
         var submit = document.querySelector("#submit")
         submit.addEventListener("click", function(){
             const stuffs = document.querySelector("#stuffs").value;
             counter++
-            db.collection("stuff").doc(counter + "thing").set({
+            db.collection("stuff").doc(counter.toString()).set({
                 'date': Date(),
                 'stuff': stuffs,
-                'counter':counter,
-                'usr': auth.currentUser.uid
+                'usr': [auth.currentUser.uid, counter]
             })
             var html = quotes.innerHTML.split("").join("").toString()
             quotes.innerHTML = `
@@ -100,19 +127,54 @@
                                     <div class="font-bold text-xl mb-2">${Date()}</div>
                                     <p class="text-gray-700 text-base">
                                         ${stuffs}
+                                        <button id="${auth.currentUser.uid}" value="${counter+"thing"}" class="buttonDelete">Delete</button>
                                     </p>
-                                </div>
-                            </div> ${html}
+                                    </div>
+                                </div> ${html}
                             </li>`
+            deleteOwnEntry = document.querySelectorAll("button")
+            delStuff()
         }) 
+        var newArray = [];
+        /* function reformatter() {
+            counter = 0
+            // step 1, copy all the stuff into a new array
+            db.collection("stuff").get().then(snapshot => {
+                snapshot.docs.forEach(doc => {
+                    newArray.push(doc.data())
+                    delCol()
+                })
+            })
+            // step 2, sort the array by the counter
+            newArray.sort((a,b) => {
+                return b.usr[1] - a.usr[1]
+            })
+            // console.log(newArray)
+            newArray.forEach(doc => console.log(doc))
+              
+            // console.log(db.collection("stuff").get().then(snapshot => {
+            //     snapshot.docs.forEach(doc => {
+            //         console.log(doc.data())
+            //     })
+            // }))
+            // step 3, display it all again
+            db.collection("stuff").get().then(snapshot => {
+                setupQuotes(snapshot.docs);
+            })
+            // console.log(newArray)
+        } */
         var deleteCol = document.querySelector("#delete")
-        deleteCol.addEventListener("click", function() {
+        function delCol() {
             db.collection("stuff").get().then(querySnapshot => {
+                counter = 0
                 querySnapshot.docs.forEach(mathing => {
                     mathing.ref.delete()
                     quotes.innerHTML = ""
                 })
             })
+        }
+        deleteCol.addEventListener("click", function() {
+            delCol()
         })
 </script>
 </body>

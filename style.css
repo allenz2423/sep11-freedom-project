@@ -12,3 +12,7 @@ body {
 .buttons {
   text-align: center;
 }
+
+.buttonDelete {
+  text-align: right;
+}
