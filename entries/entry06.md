@@ -9,6 +9,10 @@ It was really interesting to learn about APIs and how it allowed the frontend an
 
 Well, to start learning Firebase, I used the Firebase documentations. But after a while I realized that the firebase were quite confusing. I've got the authentication working at first, but I didn't know what to do from there. That's when I decided to hit up YouTube. I found a channel called ["The Net Ninja"](https://www.youtube.com/watch?v=aN1LnNq4z54&list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ) and his videos were super helpful. He had a mini-project-esque tutorial series that walks you through making a website that people can log on and off. This was probably the best way to learn Firebase in my opinion, instead of giving you options on what you can do, they should just give you 1 option and let you follow that to understand exactly how it works.
 
+# EDP (Engineering Development Process)
+
+The stage of the EDP I'm on is <b>Improve</b>. I am already done with a MVP, and everything works. What I should do next is improve on the design, make the loading a bit faster, and make the website more user friendly. After I am done improving, I should move on to communicating the results although I am not sure if I would need to do that at all.
+
 [Previous](entry05.md) | [Next](entry07.md)
 
 [Home](../README.md)    
