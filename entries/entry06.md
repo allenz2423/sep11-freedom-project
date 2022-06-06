@@ -15,15 +15,15 @@ The stage of the EDP I'm on is <b>Improve</b>. I am already done with a MVP, and
 
 # Skills
 
-The skills I've used for this project are: <li>Thinking like a computer
+The skills I've used for this project are: <ul><li>Thinking like a computer
 <ul><li>Deleting the entries required me to understand what a computer reads and how it reads off an array.</li><li>Loading the entries required me to think about how a computer reads things. This led me to use a forEach loop.</li>
 <li>Keeping the user logged in was kind of self explanatory. I just checked their authentication status, if it is then it redirects them to the main page, vice versa.</li></ul>
 </ul>
-<li>Reading the Documentations</li>
-<li>Googling and asking for help when I need it</li>
-<li>Communicating with the backend</li>
-<li>Using the DOM</li>
-</li>
+<ul><li>Reading the Documentations</li></ul>
+<ul><li>Googling and asking for help when I need it</li></ul>
+<ul><li>Communicating with the backend</li></ul>
+<ul><li>Using the DOM</li></ul>
+</li></ul>
 <br>
 I believe being able to Google is the most important skill I have. It allows me to solve the issues I have by searching it up. It doesn't bother anyone, and the skills are already posted on the web.
 
