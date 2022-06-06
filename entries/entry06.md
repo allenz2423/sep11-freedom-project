@@ -11,8 +11,7 @@ Well, to start learning Firebase, I used the Firebase documentations. But after 
 
 # EDP (Engineering Development Process)
 
-The stage of the EDP I'm on is <b>Improve</b>. I am already done with a MVP, and everything works. What I should do next is improve on the design, make the loading a bit faster, and make the website more user friendly. After I am done improving, I should move on to communicating the results although I am not sure if I would need to do that at all.
-
+The stage of the EDP I'm on is <b>Improve</b>. I am already done with a MVP, and everything works. What I should do next is improve on the design, make the loading a bit faster, and make the website more user friendly. After I am done improving, I should move on to communicating the results although I am not sure if I would need to do that at all. The thing with the current step of the EDP is that I don't really want to improve on the product that would be the MVP. I want to improve on the design. I want to make the loading a bit faster. I want to make the website more user friendly. But do I actually want to do that? All the meaningful changes I can make to the website will not be noticed by the end user. The end user will not notice the slightly faster loading time, they won't notice the more secure deletion system. I hate front end design work. 
 [Previous](entry05.md) | [Next](entry07.md)
 
 [Home](../README.md)    
