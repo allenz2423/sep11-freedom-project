@@ -94,7 +94,6 @@
             
         function delStuff() {
             for(let i = 0; i < deleteOwnEntry.length; i++){
-                // console.log(deleteOwnEntry.length)
                 deleteOwnEntry[i].addEventListener("click", function(){
                     const id = this.id
                     const val = this.value
@@ -122,16 +121,16 @@
             })
             var html = quotes.innerHTML.split("").join("").toString()
             quotes.innerHTML = `
-                            <li><div class="max-w-sm rounded overflow-hidden shadow-lg">
-                                <div class="px-6 py-4">
-                                    <div class="font-bold text-xl mb-2">${Date()}</div>
-                                    <p class="text-gray-700 text-base">
-                                        ${stuffs}
-                                        <button id="${auth.currentUser.uid}" value="${counter+"thing"}" class="buttonDelete">Delete</button>
-                                    </p>
-                                    </div>
-                                </div> ${html}
-                            </li>`
+                <li><div class="max-w-sm rounded overflow-hidden shadow-lg">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">${Date()}</div>
+                        <p class="text-gray-700 text-base">
+                            ${stuffs}
+                            <button id="${auth.currentUser.uid}" value="${counter+"thing"}" class="buttonDelete">Delete</button>
+                        </p>
+                        </div>  
+                    </div> ${html}
+                </li>`
             deleteOwnEntry = document.querySelectorAll("button")
             delStuff()
         }) 
