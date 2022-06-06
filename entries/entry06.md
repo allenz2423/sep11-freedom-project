@@ -12,6 +12,21 @@ Well, to start learning Firebase, I used the Firebase documentations. But after 
 # EDP (Engineering Development Process)
 
 The stage of the EDP I'm on is <b>Improve</b>. I am already done with a MVP, and everything works. What I should do next is improve on the design, make the loading a bit faster, and make the website more user friendly. After I am done improving, I should move on to communicating the results although I am not sure if I would need to do that at all. The thing with the current step of the EDP is that I don't really want to improve on the product that would be the MVP. I want to improve on the design. I want to make the loading a bit faster. I want to make the website more user friendly. But do I actually want to do that? All the meaningful changes I can make to the website will not be noticed by the end user. The end user will not notice the slightly faster loading time, they won't notice the more secure deletion system. I hate front end design work. 
+
+# Skills
+
+The skills I've used for this project are: <li>Thinking like a computer
+<ul><li>Deleting the entries required me to understand what a computer reads and how it reads off an array.</li><li>Loading the entries required me to think about how a computer reads things. This led me to use a forEach loop.</li>
+<li>Keeping the user logged in was kind of self explanatory. I just checked their authentication status, if it is then it redirects them to the main page, vice versa.</li></ul>
+</ul>
+<li>Reading the Documentations</li>
+<li>Googling and asking for help when I need it</li>
+<li>Communicating with the backend</li>
+<li>Using the DOM</li>
+</li>
+<br>
+I believe being able to Google is the most important skill I have. It allows me to solve the issues I have by searching it up. It doesn't bother anyone, and the skills are already posted on the web.
+
 [Previous](entry05.md) | [Next](entry07.md)
 
 [Home](../README.md)    
