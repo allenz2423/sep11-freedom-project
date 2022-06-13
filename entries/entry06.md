@@ -1,9 +1,9 @@
 # Entry 6
 Freedom Project Status: Completed 5/31/2022
 
-# What did I learn from this year long project?
+# Takeaways from the Expo Elevator Pitch and In-class Presentation
 
-It was really interesting to learn about APIs and how it allowed the frontend and backend to communicate. In this case, the frontend is the application that I made, and firebase is the backend. I have used my knowledge of arrays and objects to make a social media app that also tracks the time of upload. Using the DOM (Document Object Model) helped me dynamically upload the website to the user's will. There are a lot of skills that I should take away from this project. I should start commenting my code, and I should also start try optimizing my code. I needed to use loops so that I can initialize the website. I have learned that I needed all of the basics to create anything.
+My Expo elevator pitch was pretty mediocre. I had a script, but I wasn't able to utilize it. I've learned that it was way easier to improvise on the spot than to rehearse. I probably could've done better if I woke up a bit earlier, and there was some pressure when presenting to the judges. There felt like a time crunch. I didn't feel a time crunch when presenting in-class though, as I didn't have much to show, and I didn't really know what to show. I thought perhaps it would be more entertaining to explain how my code works, but that turned out to bore everyone. Next time, I should spend more time actually demonstrating my product, and my product should've had more features.
 
 # Sources
 
